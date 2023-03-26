@@ -1,0 +1,22 @@
+From 045d9295b0a761ec76231668384cbbbe1776757f Mon Sep 17 00:00:00 2001
+From: Brian Rheingans <brheingans@dslextreme.com>
+Date: Sat, 25 Mar 2023 17:26:27 -0700
+Subject: [PATCH] Fixed insmod path
+
+---
+ misc-modules/module_load | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/misc-modules/module_load b/misc-modules/module_load
+index a669c5e..b859bc2 100755
+--- a/misc-modules/module_load
++++ b/misc-modules/module_load
+@@ -22,7 +22,7 @@ else
+ fi
+ 
+ echo "Load our module, exit on failure"
+-insmod ./$module.ko $* || exit 1
++insmod /lib/modules/`uname -r`/$module.ko $* || exit 1
+ echo "Get the major number (allocated with allocate_chrdev_region) from /proc/devices"
+ major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
+ if [ ! -z ${major} ]; then

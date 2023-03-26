@@ -13,6 +13,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRC_URI = "git://github.com/cu-ecen-aeld/assignment-7-booglabri.git;protocol=https;branch=master \
            file://misc-modules-start-stop.sh \
+           file://0001-Fixed-insmod-path.patch;patchdir=.. \
            "
 
 # Modify these as desired
